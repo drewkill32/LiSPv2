@@ -1,0 +1,27 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/check": "^0.3.4",
+    "@astrojs/netlify": "^4.0.1",
+    "@astrojs/react": "^3.0.8",
+    "@sanity/astro": "^2.1.4",
+    "@sanity/client": "^6.10.0",
+    "@sanity/vision": "^3.23.3",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
+    "astro": "^4.0.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "sanity": "^3.23.3",
+    "typescript": "^5.3.3"
+  }
+}
