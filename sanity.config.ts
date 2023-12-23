@@ -4,8 +4,6 @@ import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemas";
 import { googleMapsInput } from "@sanity/google-maps-input";
 
-console.log({ env: import.meta.env });
-
 export default defineConfig({
   name: "default",
   title: "Lost In St. Pete",
