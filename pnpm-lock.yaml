@@ -20,6 +20,9 @@ dependencies:
   '@sanity/client':
     specifier: ^6.10.0
     version: 6.10.0
+  '@sanity/google-maps-input':
+    specifier: ^3.0.2
+    version: 3.0.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.23.3)(styled-components@6.1.3)
   '@sanity/vision':
     specifier: ^3.23.3
     version: 3.23.3(@babel/runtime@7.23.6)(@codemirror/lint@6.4.2)(@codemirror/state@6.3.3)(@codemirror/theme-one-dark@6.1.2)(@lezer/common@1.1.2)(codemirror@6.0.1)(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@6.1.3)
@@ -1442,6 +1445,25 @@ packages:
     resolution: {integrity: sha512-wtMYcV5GIDIhVyF/jjmdwq1GdlK07dRL40XMns73VbrFI7FteRltxv48bhYVZPcLkRXb0SHjpDS/icj9/yzbVA==}
     dev: false
 
+  /@sanity/google-maps-input@3.0.2(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(sanity@3.23.3)(styled-components@6.1.3):
+    resolution: {integrity: sha512-EWkKSSLUOLJlU2esENnyZTfTD4ZJJkiUBI3M96tAsDk1KSzmAeFK/3mgs1Iy8uryqOAN5z7WsNs8wIG0V/sGeQ==}
+    engines: {node: '>=14'}
+    peerDependencies:
+      react: ^18
+      sanity: ^3.14
+    dependencies:
+      '@sanity/icons': 2.8.0(react@18.2.0)
+      '@sanity/incompatible-plugin': 1.0.4(react-dom@18.2.0)(react@18.2.0)
+      '@sanity/ui': 1.9.3(react-dom@18.2.0)(react-is@18.2.0)(react@18.2.0)(styled-components@6.1.3)
+      lodash: 4.17.21
+      react: 18.2.0
+      sanity: 3.23.3(@types/react@18.2.45)(react-dom@18.2.0)(react@18.2.0)(styled-components@6.1.3)
+    transitivePeerDependencies:
+      - react-dom
+      - react-is
+      - styled-components
+    dev: false
+
   /@sanity/groq-store@5.3.7(@sanity/client@6.10.0):
     resolution: {integrity: sha512-wrAr7PKfbdRvfiC5m7unjH4x5XGZV+vMkk/CwrdHRs+39kuWWJvkwhVNRTS6iWTrTMgpMIe/H1kRrkle0PieDQ==}
     engines: {node: '>=18'}
@@ -1450,6 +1472,14 @@ packages:
     dependencies:
       '@sanity/client': 6.10.0
       mnemonist: 0.39.6
+    dev: false
+
+  /@sanity/icons@1.3.10(react@18.2.0):
+    resolution: {integrity: sha512-5wVG/vIiGuGrSmq+Bl3PY7XDgQrGv0fyHdJI64FSulnr2wH3NMqZ6C59UFxnrZ93sr7kOt0zQFoNv2lkPBi0Cg==}
+    peerDependencies:
+      react: ^16.9 || ^17 || ^18
+    dependencies:
+      react: 18.2.0
     dev: false
 
   /@sanity/icons@2.8.0(react@18.2.0):
@@ -1490,6 +1520,18 @@ packages:
       tar-fs: 2.1.1
     transitivePeerDependencies:
       - supports-color
+    dev: false
+
+  /@sanity/incompatible-plugin@1.0.4(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-2z39G9PTM8MXOF4fJNx3TG4tH0RrTjtH6dVLW93DSjCPbIS7FgCY5yWjZfQ+HVkwhLsF7ATDAGLA/jp65pFjAg==}
+    peerDependencies:
+      react: ^16.9 || ^17 || ^18
+      react-dom: ^16.9 || ^17 || ^18
+    dependencies:
+      '@sanity/icons': 1.3.10(react@18.2.0)
+      react: 18.2.0
+      react-copy-to-clipboard: 5.1.0(react@18.2.0)
+      react-dom: 18.2.0(react@18.2.0)
     dev: false
 
   /@sanity/logos@2.1.4(@sanity/color@3.0.0-beta.9)(react@18.2.0):

@@ -6,7 +6,7 @@ import netlify from "@astrojs/netlify";
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'server',
+  output: 'hybrid',
   integrations: [react(), sanityIntegration({
     projectId: 'qnm8o52k',
     dataset: 'production',
