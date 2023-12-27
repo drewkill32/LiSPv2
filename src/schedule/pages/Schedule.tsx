@@ -82,51 +82,51 @@ export default function Schedule() {
 
 const imgData = [
   {
-    src: "/imgs/sponsors/1._Lost_Logo.png",
+    src: "/imgs/sponsors/lost_logo.png",
     alt: "Lost in St. Pete",
   },
   {
-    src: "/imgs/sponsors/2._DEA+AND+SAINT.png",
+    src: "/imgs/sponsors/dea_and_saint.png",
     alt: "Dea & Saint",
   },
   {
-    src: "/imgs/sponsors/3._LITTLE_SAINT_NICK.png",
+    src: "/imgs/sponsors/little_saint_nick.png",
     alt: "Little Saint Nick",
   },
   {
-    src: "/imgs/sponsors/4._Gobioff Foundation.png",
+    src: "/imgs/sponsors/gobioff_foundation.png",
     alt: "Gobioff Foundation",
   },
   {
-    src: "/imgs/sponsors/5._pcf-logo.png",
+    src: "/imgs/sponsors/pcf-logo.png",
     alt: "Pinellas Community Foundation",
   },
   {
-    src: "/imgs/sponsors/6. RGR-Logo-2015-v2-black.png",
+    src: "/imgs/sponsors/rgr-logo-2015-v2-black.png",
     alt: "Rock Garden Recording",
   },
   {
-    src: "/imgs/sponsors/7. Convicted printing logo no light.png",
+    src: "/imgs/sponsors/convicted_printing_logo_no_light.png",
     alt: "Convicted Printing",
   },
   {
-    src: "/imgs/sponsors/8._Bad_Company.png",
+    src: "/imgs/sponsors/bad_company.png",
     alt: "Bad Company Tech Solutions",
   },
   {
-    src: "/imgs/sponsors/9._Daddy_Kool.png",
+    src: "/imgs/sponsors/daddy_kool.png",
     alt: "Daddy Kool Records",
   },
   {
-    src: "/imgs/sponsors/10._Imagine360Video_Edge_Logo_Full.png",
+    src: "/imgs/sponsors/imagine360video_edge_logo_full.png",
     alt: "Imagine 360 Video",
   },
   {
-    src: "/imgs/sponsors/11. Symphonic_Logo.png",
+    src: "/imgs/sponsors/symphonic_logo.png",
     alt: "Symphonic",
   },
   {
-    src: "/imgs/sponsors/13. PIZZA BOX LOGO.PNG",
+    src: "/imgs/sponsors/pizza_box_logo.png",
     alt: "Pizza Box",
   },
 ];
