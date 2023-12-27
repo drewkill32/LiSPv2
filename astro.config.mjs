@@ -1,8 +1,9 @@
 import { defineConfig } from 'astro/config';
 import react from "@astrojs/react";
 import { sanityIntegration } from '@sanity/astro';
-
 import netlify from "@astrojs/netlify";
+
+import tailwind from "@astrojs/tailwind";
 
 // https://astro.build/config
 export default defineConfig({
@@ -12,6 +13,6 @@ export default defineConfig({
     dataset: 'production',
     useCdn: true,
     studioBasePath: "/admin"
-  })],
+  }), tailwind()],
   adapter: netlify()
 });

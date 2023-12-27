@@ -1,51 +1,92 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
+
+import Logo from "./Logo.astro";
+import NavMenu from "../components/NavMenu";
+import NavLink from "../components/NavLink.astro";
 
 const { title } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <link
+      rel="preload"
+      href="fonts/white-on-black.woff"
+      as="font"
+      type="font/woff"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      @font-face {
+        font-family: "white-on-black";
+        src: url("fonts/white-on-black.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "dcc-ash";
+        src:
+          local("dcc-ash"),
+          local("DCC - Ash"),
+          url(fonts/dcc-ash.woff) format("woff");
+        font-style: normal;
+        font-weight: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "gesso";
+        src: url("fonts/gesso.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      @font-face {
+        font-family: "destroy";
+        src: url("fonts/destroy.woff") format("woff");
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+  </head>
+  <body>
+    <nav
+      class="bg-primary text-white px-6 fixed w-full h-16 z-[1000] font-header flex items-center justify-between gap-4"
+    >
+      <a href="/" class="group flex items-center flex-1 hover:text-gray-300">
+        <Logo className="fill-white w-7 group-hover:fill-gray-300" />
+        <h1 class="text-base pl-2 group-hover:text-gray-300">
+          Lost in St. Pete
+        </h1></a
+      >
+      <NavLink href="/schedule">Schedule</NavLink>
+
+      <NavMenu
+        client:load
+        title="About"
+        menuItems={[
+          { name: "Contact Us", link: "#" },
+          { name: "FAQ", link: "#" },
+        ]}
+      />
+    </nav>
+    <main class="pt-20 container mx-auto">
+      <slot />
+    </main>
+  </body>
 </html>
-<style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
-</style>
