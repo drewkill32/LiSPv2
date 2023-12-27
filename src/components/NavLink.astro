@@ -1,0 +1,28 @@
+---
+interface Props {
+  href: string;
+}
+
+const { href } = Astro.props;
+---
+
+<a
+  href={href}
+  data-nav-link={href}
+  class="relative hover:text-gray-300 aria-current:after:block aria-current:after:bg-white aria-current:after:absolute aria-current:after:w-full aria-current:after:h-0.5"
+  ><slot /></a
+>
+
+<script>
+  // get all the elements with data-nav-link attribute
+  const navLinks = document
+    .querySelectorAll("[data-nav-link]")
+    .forEach((el) => {
+      const link = el as HTMLAnchorElement;
+      const currentUrl = window.location.href;
+      link.removeAttribute("aria-current");
+      if (link.href === currentUrl) {
+        link.setAttribute("aria-current", "page");
+      }
+    });
+</script>

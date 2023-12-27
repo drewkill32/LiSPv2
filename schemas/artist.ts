@@ -4,7 +4,6 @@ export const artist = defineType({
   title: "Artist",
   name: "artist",
   type: "document",
-  fieldsets: [{ name: "social", title: "Social Media Handles" }],
   fields: [
     {
       title: "Name",

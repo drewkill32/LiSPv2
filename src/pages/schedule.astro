@@ -1,0 +1,10 @@
+---
+export const prerender = false;
+
+import Layout from "../layouts/Layout.astro";
+import ScheduleWrapper from "../schedule/pages/ScheduleWrapper";
+---
+
+<Layout title="Lost in St. Pete">
+  <ScheduleWrapper client:only />
+</Layout>
