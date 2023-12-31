@@ -1,6 +1,6 @@
 ---
 interface Props {
-  title: string;
+  title?: string;
 }
 
 import Logo from "./Logo.astro";
@@ -15,7 +15,7 @@ const { title } = Astro.props;
   <head>
     <link
       rel="preload"
-      href="fonts/white-on-black.woff"
+      href="/fonts/white-on-black.woff"
       as="font"
       type="font/woff"
       crossorigin="anonymous"
@@ -24,7 +24,7 @@ const { title } = Astro.props;
     <style>
       @font-face {
         font-family: "white-on-black";
-        src: url("fonts/white-on-black.woff") format("woff");
+        src: url("/fonts/white-on-black.woff") format("woff");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -34,7 +34,7 @@ const { title } = Astro.props;
         src:
           local("dcc-ash"),
           local("DCC - Ash"),
-          url(fonts/dcc-ash.woff) format("woff");
+          url(/fonts/dcc-ash.woff) format("woff");
         font-style: normal;
         font-weight: normal;
         font-display: swap;
@@ -42,7 +42,7 @@ const { title } = Astro.props;
 
       @font-face {
         font-family: "gesso";
-        src: url("fonts/gesso.woff") format("woff");
+        src: url("/fonts/gesso.woff") format("woff");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -50,7 +50,7 @@ const { title } = Astro.props;
 
       @font-face {
         font-family: "destroy";
-        src: url("fonts/destroy.woff") format("woff");
+        src: url("/fonts/destroy.woff") format("woff");
         font-weight: normal;
         font-style: normal;
         font-display: swap;
@@ -62,20 +62,23 @@ const { title } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title}</title>
+    <title>Lost in St. Pete {title && "|"} {title}</title>
   </head>
-  <body>
+  <body
+    class="bg-main-logo-mark bg-position-logo-mark-sm sm:bg-position-logo-mark bg-50 bg-no-repeat min-h-dvh bg-fixed"
+  >
     <nav
       class="bg-primary text-white px-6 fixed w-full h-16 z-[1000] font-header flex items-center justify-between gap-4"
     >
       <a href="/" class="group flex items-center flex-1 hover:text-gray-300">
-        <Logo className="fill-white w-7 group-hover:fill-gray-300" />
+        <Logo class="fill-white w-7 group-hover:fill-gray-300" />
         <h1 class="text-base pl-2 group-hover:text-gray-300">
           Lost in St. Pete
         </h1></a
       >
       <NavLink href="/schedule">Schedule</NavLink>
-
+      <NavLink href="/artists">Artists</NavLink>
+      <NavLink href="/map">Map</NavLink>
       <NavMenu
         client:load
         title="About"
@@ -85,7 +88,7 @@ const { title } = Astro.props;
         ]}
       />
     </nav>
-    <main class="pt-20 container mx-auto">
+    <main class="pt-20">
       <slot />
     </main>
   </body>

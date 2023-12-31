@@ -1,0 +1,37 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+import { urlFor, getArtistList } from "../../sanity";
+import LispLogo from "../../assets/lispLogo.jpg";
+
+const artists = await getArtistList();
+---
+
+<Layout title="Artists">
+  <div class="container flex flex-wrap">
+    {
+      artists.map((artist) => {
+        const image = artist.image ? urlFor(artist.image).url() : LispLogo.src;
+        return (
+          <a
+            href={"/artists/" + artist.slug}
+            class="w-full md:w-1/2 lg:w-1/3 p-4"
+          >
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+              <img
+                class="w-full h-56 p-4 rounded-lg"
+                src={image}
+                alt={artist.name}
+              />
+
+              <hr class="h-px w-full px-4 my-8 bg-gray-200 border-0 darK:bg-gray-700 " />
+              <p class="uppercase tracking-wide text-center font-bold text-gray-700">
+                {artist.name}
+              </p>
+            </div>
+          </a>
+        );
+      })
+    }
+  </div>
+</Layout>

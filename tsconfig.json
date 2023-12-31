@@ -2,5 +2,10 @@
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
     "jsx": "react-jsx",
+  },
+  "paths": {
+    "@components/*": ["src/components/*"],
+    "@layouts/*": ["src/layouts/*"],
+    "@sanity/*" : ["src/sanity/*"],
   }
 }

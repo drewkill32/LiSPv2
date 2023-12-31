@@ -1,0 +1,42 @@
+---
+import PortableText from "../../components/sanity/PortableText.astro";
+import Layout from "../../layouts/Layout.astro";
+import { getArtists, urlFor } from "../../sanity";
+import type {
+  InferGetStaticParamsType,
+  InferGetStaticPropsType,
+  GetStaticPaths,
+} from "astro";
+
+import type { Artist } from "../../sanity";
+
+import Carousel from "../../components/Carousel";
+export const getStaticPaths = (async () => {
+  const artists = await getArtists();
+  return artists.map((artist: Artist) => ({
+    params: { artists: artist.slug.current },
+    props: { artist },
+  }));
+}) satisfies GetStaticPaths;
+
+type Params = InferGetStaticParamsType<typeof getStaticPaths>;
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { artist } = Astro.props;
+console.log(artist);
+const images = artist.images.map((image) => ({
+  src: urlFor(image).width(768).height(320).url(),
+  alt: artist.name,
+}));
+---
+
+<Layout title={artist.name}>
+  <div class="container mx-auto px-4">
+    <h1 class="text-3xl text-center font-header pb-3">{artist.name}</h1>
+    <h2 class="text-3xl text-center font-sub-header pb-3">{artist.location}</h2>
+    <Carousel client:visible images={images} />
+    <div class="pt-2">
+      <PortableText class="" portableText={artist.bio} />
+    </div>
+  </div>
+</Layout>
