@@ -1,16 +1,16 @@
 ---
-interface Props {
-  className: string;
+interface Props extends astroHTML.JSX.SVGAttributes {
+  class: string;
 }
 
-const { className } = Astro.props;
+const { ...attr } = Astro.props;
 ---
 
 <svg
+  {...attr}
   width="40"
   height="40"
   viewBox="0 0 40 40"
-  class={className}
   xmlns="http://www.w3.org/2000/svg"
 >
   <g>

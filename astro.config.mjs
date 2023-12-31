@@ -12,7 +12,7 @@ export default defineConfig({
     projectId: 'qnm8o52k',
     dataset: 'production',
     useCdn: true,
-    studioBasePath: "/admin"
+    studioBasePath: "/admin",
   }), tailwind()],
   adapter: netlify()
 });

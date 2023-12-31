@@ -1,0 +1,23 @@
+---
+import { urlFor } from "../../sanity";
+
+interface Props {
+  node: {
+    asset: {
+      _ref: string;
+      _type: string;
+    };
+    alt: string;
+    height: number;
+  };
+}
+
+const { asset, alt, height } = Astro.props.node;
+const webUrl = urlFor(asset).format("webp").height(height).url();
+const url = urlFor(asset).height(height).url();
+---
+
+<picture class="py-3">
+  <source srcset={webUrl} type="image/webp" />
+  <img src={url} alt={alt} height="100" />
+</picture>
