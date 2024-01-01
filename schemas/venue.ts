@@ -1,7 +1,7 @@
 import { defineType, defineField, defineArrayMember } from "sanity";
 
 export const venue = defineType({
-  title: "Venue",
+  title: "Venues",
   name: "venue",
   type: "document",
   fields: [

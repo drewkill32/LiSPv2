@@ -4,6 +4,7 @@ import { deskTool } from "sanity/desk";
 import { visionTool } from "@sanity/vision";
 import { schemaTypes } from "./schemas";
 import { googleMapsInput } from "@sanity/google-maps-input";
+import { structure } from "./sanity/structure";
 
 const config = defineConfig({
   name: "default",
@@ -11,7 +12,9 @@ const config = defineConfig({
   projectId: "qnm8o52k",
   dataset: "production",
   plugins: [
-    deskTool(),
+    deskTool({
+      structure: structure,
+    }),
     visionTool(),
     googleMapsInput({
       apiKey: import.meta.env.PUBLIC_GOOGLE_API_KEY,
