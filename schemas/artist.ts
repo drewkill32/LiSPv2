@@ -72,7 +72,7 @@ export const artist = defineType({
             return true; // Allow undefined or empty string values
           }
           return url.match(
-            /^https:\/\/www\.youtube\.com\/watch\?v=[a-zA-Z0-9_-]{11}$/,
+            /^https:\/\/www\.youtube\.com\/(watch\?v=|embed\/)[a-zA-Z0-9_-]{11}$/,
           )
             ? true
             : "Invalid YouTube URL. URL must be in the format https://www.youtube.com/watch?v=XXXXXXXXXXX";
@@ -98,6 +98,7 @@ export const artist = defineType({
                   "SoundCloud",
                   "Spotify",
                   "Bandcamp",
+                  "YouTube",
                   "Website",
                 ],
               },

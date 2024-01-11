@@ -1,12 +1,10 @@
 import { defineType, defineField, defineArrayMember } from "sanity";
 import { MyCustomStringInput } from "../sanity/components/MyCustomStringInput";
-import { CogIcon } from "@sanity/icons";
 
 export const siteSettings = defineType({
   title: "Site Settings",
   name: "siteSettings",
   type: "document",
-  icon: CogIcon,
   fields: [
     defineField({
       title: "Site Title",
