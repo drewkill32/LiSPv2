@@ -30,15 +30,13 @@ export function GoogleMapPage() {
 
   const [map, setMap] = useState<google.maps.Map>();
 
-
-
   const { isLoading: venuesLoading, venues } = useLineup();
 
   const handleMarkerClick = (index: number) => {
     if (selectedVenueIndex === index) {
-      navigate("/map");
+      window.location.href = "/map";
     } else {
-      navigate(venues[index].venueSlug);
+      window.location.href = `/map${venues[index].venueSlug}`;
     }
   };
 
@@ -103,7 +101,7 @@ export function GoogleMapPage() {
               <VenueMarker
                 onClick={() =>
                   handleMarkerClick(
-                    venues.findIndex((x) => x.address === venue.address)
+                    venues.findIndex((x) => x.address === venue.address),
                   )
                 }
                 enabled={false}
@@ -151,10 +149,10 @@ export function GoogleMapPage() {
                 map,
                 new google.maps.LatLng(
                   venues[selectedVenueIndex].lat,
-                  venues[selectedVenueIndex].lng
+                  venues[selectedVenueIndex].lng,
                 ),
                 xOffset,
-                yOffset
+                yOffset,
               );
             }
           }}

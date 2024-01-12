@@ -1,5 +1,5 @@
 import { MarkerF as Marker } from "@react-google-maps/api";
-import { MapLatLng } from "./types";
+import { type MapLatLng } from "./types";
 
 type VenueMarkerProps = {
   position: MapLatLng;

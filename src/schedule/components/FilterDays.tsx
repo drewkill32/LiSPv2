@@ -2,7 +2,7 @@ import { ToggleButton, ToggleButtonGroup } from "@mui/material";
 import { useLineup } from "../lineup";
 
 export const FilterDays = () => {
-  const { day, setDay, search, lineup } = useLineup();
+  const { day, setDay, search } = useLineup();
 
   return (
     <ToggleButtonGroup

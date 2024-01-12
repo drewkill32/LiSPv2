@@ -1,47 +1,24 @@
 import { defineType, defineField, defineArrayMember } from "sanity";
+import { MyCustomStringInput } from "../sanity/components/MyCustomStringInput";
 
-export const artist = defineType({
-  title: "Artists",
-  name: "artist",
+export const siteSettings = defineType({
+  title: "Site Settings",
+  name: "siteSettings",
   type: "document",
-  preview: {
-    select: {
-      title: "name",
-      image: "images",
-    },
-    prepare({ title, image }) {
-      return {
-        title,
-        media: image?.[0],
-      };
-    },
-  },
   fields: [
     defineField({
-      title: "Name",
-      name: "name",
+      title: "Site Title",
+      name: "title",
       type: "string",
-      validation: (Rule) => Rule.required(),
-    }),
-    defineField({
-      title: "Slug",
-      name: "slug",
-      type: "slug",
-      options: {
-        source: "name",
+      components: {
+        input: MyCustomStringInput,
       },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      title: "Location",
-      name: "location",
-      type: "string",
-    }),
-    defineField({
-      title: "Bio",
-      name: "bio",
-      type: "array",
-      of: [defineArrayMember({ type: "block" })],
+      title: "Site Description",
+      name: "description",
+      type: "text",
     }),
     defineField({
       title: "Images",
@@ -63,22 +40,6 @@ export const artist = defineType({
       ],
     }),
     defineField({
-      title: "YouTube URL",
-      name: "youtubeUrl",
-      type: "url",
-      validation: (Rule) =>
-        Rule.custom((url) => {
-          if (!url) {
-            return true; // Allow undefined or empty string values
-          }
-          return url.match(
-            /^https:\/\/www\.youtube\.com\/(watch\?v=|embed\/)[a-zA-Z0-9_-]{11}$/,
-          )
-            ? true
-            : "Invalid YouTube URL. URL must be in the format https://www.youtube.com/watch?v=XXXXXXXXXXX";
-        }),
-    }),
-    defineField({
       title: "Socials",
       name: "socials",
       type: "array",
@@ -98,7 +59,6 @@ export const artist = defineType({
                   "SoundCloud",
                   "Spotify",
                   "Bandcamp",
-                  "YouTube",
                   "Website",
                 ],
               },

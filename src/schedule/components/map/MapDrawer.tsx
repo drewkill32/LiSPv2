@@ -8,7 +8,7 @@ import {
   ListItemIcon,
   Slide,
   SwipeableDrawer,
-  Theme,
+  type Theme,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -18,7 +18,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import { styled } from "@mui/material/styles";
 import { useEffect, useState } from "react";
-import { Venue } from "../../lineup";
+import { type Venue } from "../../lineup";
 import { createGoogleMapsUrl } from "../../utils";
 import { ArtistListItemText } from "../ArtistListItemText";
 
@@ -70,7 +70,7 @@ const ResponsiveDrawer = ({
   onClose,
 }: ResponsiveDrawerProps) => {
   const isSmallScreen = useMediaQuery((theme: Theme) =>
-    theme.breakpoints.down("md")
+    theme.breakpoints.down("md"),
   );
 
   const [open, setOpen] = useState(false);
@@ -106,7 +106,7 @@ const ResponsiveDrawer = ({
             cursor: "pointer",
             display: enabled && !open && !touchSupported ? "block" : "none",
           }}
-          onClick={(e) => {
+          onClick={() => {
             if (!touchSupported) {
               setOpen((o) => !o);
             }

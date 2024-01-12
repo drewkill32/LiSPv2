@@ -15,14 +15,12 @@ const { href } = Astro.props;
 
 <script>
   // get all the elements with data-nav-link attribute
-  const navLinks = document
-    .querySelectorAll("[data-nav-link]")
-    .forEach((el) => {
-      const link = el as HTMLAnchorElement;
-      const currentUrl = window.location.href;
-      link.removeAttribute("aria-current");
-      if (link.href === currentUrl) {
-        link.setAttribute("aria-current", "page");
-      }
-    });
+  document.querySelectorAll("[data-nav-link]").forEach((el) => {
+    const link = el as HTMLAnchorElement;
+    const currentUrl = window.location.href;
+    link.removeAttribute("aria-current");
+    if (link.href === currentUrl) {
+      link.setAttribute("aria-current", "page");
+    }
+  });
 </script>

@@ -2,11 +2,7 @@
 import PortableText from "../../components/sanity/PortableText.astro";
 import Layout from "../../layouts/Layout.astro";
 import { getArtists, urlFor } from "../../sanity";
-import type {
-  InferGetStaticParamsType,
-  InferGetStaticPropsType,
-  GetStaticPaths,
-} from "astro";
+import type { InferGetStaticPropsType, GetStaticPaths } from "astro";
 
 import type { Artist } from "../../sanity";
 
@@ -19,15 +15,15 @@ export const getStaticPaths = (async () => {
   }));
 }) satisfies GetStaticPaths;
 
-type Params = InferGetStaticParamsType<typeof getStaticPaths>;
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { artist } = Astro.props;
-console.log(artist);
-const images = artist.images ? artist.images.map((image) => ({
-  src: urlFor(image).width(768).height(320).url(),
-  alt: artist.name,
-})) : [];
+const images = artist.images
+  ? artist.images.map((image) => ({
+      src: urlFor(image).width(768).height(320).url(),
+      alt: artist.name,
+    }))
+  : [];
 ---
 
 <Layout title={artist.name}>
