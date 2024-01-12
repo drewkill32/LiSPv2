@@ -18,7 +18,6 @@ export const getStaticPaths = (async () => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>;
 
 const { artist } = Astro.props;
-console.log(artist);
 const images = artist.images
   ? artist.images.map((image) => ({
       src: urlFor(image).width(768).height(320).url(),
