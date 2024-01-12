@@ -1,8 +1,8 @@
 import GpsNotFixedIcon from "@mui/icons-material/GpsNotFixed";
 import MyLocationIcon from "@mui/icons-material/MyLocation";
-import { Button, ButtonProps } from "@mui/material";
+import { Button, type ButtonProps } from "@mui/material";
 import { useEffect, useState } from "react";
-import { MapLatLng } from "./types";
+import { type MapLatLng } from "./types";
 
 type locationUpdated = (location: MapLatLng | null) => void;
 
@@ -12,7 +12,7 @@ interface ZoomButtonProps extends ButtonProps {
 
 const updateLocation = (
   currentLocation: MapLatLng | null,
-  callback: locationUpdated
+  callback: locationUpdated,
 ) => {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
@@ -30,7 +30,7 @@ const updateLocation = (
       },
       () => {
         callback(null);
-      }
+      },
     );
   } else {
     // Browser doesn't support Geolocation
@@ -44,7 +44,7 @@ export function ZoomButton({
   ...rest
 }: ZoomButtonProps) {
   const [currentLocation, setCurrentLocation] = useState<MapLatLng | null>(
-    null
+    null,
   );
 
   const [tracking, setTracking] = useState<boolean>(false);

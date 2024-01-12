@@ -18,10 +18,12 @@ const migrateDocuments = async (artists) => {
     try {
       console.log(`importing '${artist.name}'...`);
       const pairs = await Promise.all(
-        artist.images.map((image) => {
-          return client.assets
-            .upload("image", fs.createReadStream(image.asset))
-            .then((asset) => [asset, image]);
+        artist.images.map(async (image) => {
+          const asset = client.assets.upload(
+            "image",
+            fs.createReadStream(image.asset),
+          );
+          return [asset, image];
         }),
       );
       pairs.forEach(([asset, image]) => {

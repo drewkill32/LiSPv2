@@ -6,12 +6,13 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro check && astro build",
+    "build": "astro build",
     "preview": "astro preview",
+    "check": "astro check --watch",
     "astro": "astro",
     "scrape": "node scripts/getArtistUrls.js --output .lisp-data/artist-urls.json",
     "scrape:artists": "node scripts/getPageContent.js --export .lisp-data/artists",
-    "migrate": "sanity exec scripts/sanityMigrations.js --with-user-token -- dea-and-saint"
+    "migrate": "sanity exec scripts/sanityMigrations.js --with-user-token"
   },
   "dependencies": {
     "@astrojs/check": "^0.3.4",

@@ -133,6 +133,7 @@ async function getImgs(section, dirName, slug) {
       socialUrl: url,
       socialType: socialType,
       _key: getHash(url),
+      socialText: undefined,
     };
 
     if (link.socialType === "Website") {

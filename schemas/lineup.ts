@@ -1,5 +1,4 @@
 import { defineType, defineField, defineArrayMember } from "sanity";
-import { MyCustomStringInput } from "../sanity/components/MyCustomStringInput";
 
 export const lineup = defineType({
   title: "Lineup",

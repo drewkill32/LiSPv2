@@ -1,4 +1,4 @@
-import type { StructureResolver, StructureBuilder } from "sanity/desk";
+import type { StructureResolver } from "sanity/desk";
 import { orderableDocumentListDeskItem } from "@sanity/orderable-document-list";
 
 export const structure: StructureResolver = (S, context) =>
