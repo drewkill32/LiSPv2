@@ -38,5 +38,12 @@ const migrateDocuments = async (artists) => {
   }
 };
 
-const a = getArtists().slice(25);
-migrateDocuments(a);
+let artists = getArtists();
+if (process.argv > 2) {
+  artistFilters = process.argv.slice(2);
+  artists = artists.filter((artist) =>
+    artistFilters.includes(artist.slug.current),
+  );
+}
+
+migrateDocuments(artists);
